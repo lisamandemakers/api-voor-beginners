@@ -3,13 +3,30 @@
 // 1 persoon: https://fdnd.directus.app/items/person/67
 // iedereen: https://fdnd.directus.app/items/person/?fields=id,name,github_handle,avatar&filter={%22squads%22:{%22squad_id%22:{%22name%22:%22Minor%20Web%20Dev%22}}}&sort=name
 
+// waar je de info vandaan haalt
 const baseURL = 'https://fdnd.directus.app/';
-const endpointMe = 'items/person/67';
+// waar je de info vandaan haalt
+const endpointMe = 'items/person/212';
 
 
+	// wat voor informatie je wilt hebben
+const myURL = baseURL + endpointMe
+// console.log(myURL);
 
+	// hier is de function om de data op te roepen uit de URL
+getData(myURL).then( data212 => {
+	// hier hebben we de h1 uit de HTML gehaald en geven het een variabele om aan te spreken
+	let deH1 = document.querySelector("h1");
 
+ 	// hier een variabele aangemaakt voor de data -> naam
+	let myName = data212.data.name;
 
+	// hier vervangen we de tekst inhoud naar de variabele die we uit de data hebben
+	deH1.textContent = myName;
+	
+	// hier checken we de variabele
+	// console.log(myName)
+} );
 
 
 
